@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Chip from '@mui/material/Chip';
-import Image from './image.svg'
+// import Image from './image.svg'
 import { makeStyles } from '@mui/styles';
 import ClearIcon from '@mui/icons-material/Clear';
 // import { Avatar } from '@mui/material';
-import Avatar, { ConfigProvider } from 'react-avatar';
+import Avatar from 'react-avatar';
 
 
 const useStyles = makeStyles((theme) => ({

@@ -13,12 +13,3 @@ code {
 }
 
 
-@font-face {
-  font-family: 'Inter';
-  src: url('/home/unifo/.fonts/Inter-Regular.woff2') format('woff2'),
-       url('/home/unifo/.fonts/Inter-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
