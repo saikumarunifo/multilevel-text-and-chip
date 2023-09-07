@@ -6,6 +6,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/inter": "^5.0.4",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.5",
     "@mui/styles": "^5.12.3",
@@ -16,6 +17,7 @@
     "react": "^18.2.0",
     "react-avatar": "^5.0.3",
     "react-dom": "^18.2.0",
+    "react-page-scroller": "^2.3.1",
     "react-scripts": "5.0.1",
     "typeface-inter": "^3.18.1",
     "web-vitals": "^2.1.4"

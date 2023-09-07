@@ -3,7 +3,6 @@ import { Card, CardContent, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import HomeIcon from '@mui/icons-material/Home';
 import { Icon } from '@mui/material';
-//import 'typeface-inter';
 const useStyles = makeStyles((theme) => ({
   card: {
     display: 'flex',
@@ -44,34 +43,34 @@ const useStyles = makeStyles((theme) => ({
       fontStyle: 'normal',
       fontWeight: 600,
       fontSize: '18px',
-      lineHeight: '32px',
+      lineHeight: '23px',
       color: '#050E25',
       minWidth: '21px',
-      maxWidth: "160px",
-      height: "25px",
+      maxWidth: "150px",
+      height: "18px",
       whiteSpace: 'nowrap', 
       overflow: 'hidden',
       //textOverflow: 'ellipsis', 
       //marginLeft: "2rem",
-      // pointerEvents: 'none', 
+      pointerEvents: 'none', 
     },
   },
 
   typographyDisabled: {
-    color: "#626776 !important",
-    fontFamily: 'Inter !important',
-    fontStyle: 'normal !important',
-    //fontWeight: '600 !important',
-    fontSize: '18px !important',
-    lineHeight: '32px !important',
-    minWidth: '21px !important',
-    maxWidth: '160px !important',
-    height: '25px !important',
-    whiteSpace: 'nowrap !important',
-    overflow: 'hidden !important',
+      color: "#626776",
+      fontFamily: 'Inter',
+      fontStyle: 'normal',
+      fontWeight: 600,
+      fontSize: '18px',
+      lineHeight: '23px',
+      minWidth: '21px',
+      maxWidth: "150px",
+      height: "18px",
+      whiteSpace: 'nowrap', 
+      overflow: 'hidden',
       //textOverflow: 'ellipsis', 
       //marginLeft: "2rem",
-      // pointerEvents: 'none'
+      pointerEvents: 'none'
   },
   // cardContentRoot: {
   //   '&.MuiCardContent-root': {
@@ -79,34 +78,36 @@ const useStyles = makeStyles((theme) => ({
   //     // marginLeft: "-1.5rem",
   //   }
   // },
-  // container: {
-  //   display: 'flex',
-  //   alignItems: 'center',
-  //   marginTop: '20px',
-  //   justifyContent: 'center',
-  // },
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: '20px',
+    justifyContent: 'center',
+  },
 }));
 
 const MyCard = (props) => {
-  const {text, disabled, icon, iconColor} = props
+  const {selectCardProps} = props
   const classes = useStyles();
   const iconStyle = {
-    color: disabled ? '#d3d3d3' : iconColor,
+    color: selectCardProps.disabled ? '#d3d3d3' : selectCardProps.iconColor,
   };
 
   return (
-      <Card className={disabled ? classes.cardDisabled : classes.card}>
+    <div className={classes.container}>
+      <Card className={selectCardProps.disabled ? classes.cardDisabled : classes.card}>
       <Icon style={iconStyle}>
-           {disabled ? icon : icon}                                      
+
+           {selectCardProps.icon}                                      
         </Icon>
         <CardContent className= {classes.cardContentRoot}>
-          <Typography  className={disabled ? classes.typographyDisabled : classes.typographyRoot}>
-              {text}
+          <Typography  className={selectCardProps.disabled ? classes.typographyDisabled : classes.typographyRoot}>
+              {selectCardProps.text}
           </Typography>
         </CardContent>
       </Card>
+    </div>
   );
 };
 
 export default MyCard;
-

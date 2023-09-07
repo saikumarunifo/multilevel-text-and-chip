@@ -1,21 +1,32 @@
-import MyCard from "./SelectCard"
-import SelectCardData from "./SelectCardData"
-import React from "react";
- 
-const SelectCardParentComp = () => {
+import React, { useState } from 'react';
+import MyCard1 from './SelectCard';
 
-   return (
-      <>
-    <MyCard  selectCardProps = {SelectCardData.obj1} />
-    <MyCard  selectCardProps = {SelectCardData.obj2} />
-    <MyCard  selectCardProps = {SelectCardData.obj3} />
-    <MyCard  selectCardProps = {SelectCardData.obj4} />
-    <MyCard  selectCardProps = {SelectCardData.obj5} />
-    <MyCard  selectCardProps = {SelectCardData.obj6} />
+const SelectCardParentComp = ({ cardData }) => {
+  const [selectedCard, setSelectedCard] = useState('');
+
+  const handleCardSelect = (text) => {
+    setSelectedCard(text);
+  };
+
+  return (
+    <>
+      {Object.keys(cardData).map((key) => {
+        const data = cardData[key];
+        return (
+          <MyCard1
+            key={key}
+            text={data.text}
+            disabled={data.disabled}
+            icon={data.icon}
+            iconColor={data.iconColor}
+            selected={selectedCard === data.text}
+            onSelect={handleCardSelect}
+          />
+        );
+      })}
     </>
-   )
+  );
 };
 
-
-
 export default SelectCardParentComp;
+

@@ -7,13 +7,17 @@ import { makeStyles } from '@mui/styles';
 import ClearIcon from '@mui/icons-material/Clear';
 // import { Avatar } from '@mui/material';
 import Avatar from 'react-avatar';
+import wrong from './wrong.svg'
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   textFieldRoot: {
     '&.MuiTextField-root': {
-      width: '289px',
+      width: '0px',
     },
+    '& .MuiFilledInput-input': {
+      fontSize: '12px !important',
+      fontWeight: 400,
+    }
   },
 
   underline: {
@@ -28,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .MuiFilledInput-root': {
       padding: '4px 8px !important',
-      backgroundColor: '#fafafa !important',
+      backgroundColor: '#ffffff !important',
     },
     '& .MuiFilledInput-input': {
       padding: '4px 8px !important',
@@ -39,12 +43,26 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiFilledInput-root:after': {
       borderBottom: '1px solid #3874FF'
     },
+    '& .MuiChip-label': {
+        paddingLeft: '0px !important',
+        paddingRight: '4px !important',
+    },
+    '& .MuiChip-avatar': {
+      marginLeft: '0px !important',
+    },
+    '& .MuiAutocomplete-tag': {
+      maxHeight: '24px !important',
+    },
+    '& .MuiChip-deleteIcon': {
+       margin: '0px 3px 0px -6px !important'
+    },
+
   } 
 
-}));
+});
 
 
-const App = () => {
+const TextField55 = ({width}) => {
   const classes = useStyles()
   const [chips, setChips] = useState([])
   const [inputValue, setInputValue] = useState('')
@@ -68,6 +86,8 @@ const App = () => {
 
   }
 
+  const widthStyle = width ? width : '289px'
+
   return (
     <div>
       <Autocomplete
@@ -82,10 +102,11 @@ const App = () => {
         style={{display: 'inline'}}
         renderTags={(value, getTagProps) =>
           value.map((chip, index) => (
+            <div style={{padding: '1px'}}>
             <Chip
               key={index}
               //icon={<img src={Image} alt="icon" style={{ width: '16px', height: '16px' }} />}
-              avatar={<Avatar size='20' textSizeRatio={2} round = {true} maxInitials = {1} name= {chip.value ? chip.value : chip} style={{}} />}
+              avatar={<Avatar size='16' textSizeRatio={2} round = {true} maxInitials = {1} name= {chip.value ? chip.value : chip}  />}  //style={{padding: '4px'}}
               //variant="outlined"
               className= {classes.chipRoot}
               label={chip.value ? chip.value : chip}
@@ -94,23 +115,28 @@ const App = () => {
               style={{
                 fontFamily: 'Inter',
                 fontStyle: 'normal',
-                fontWeight: 600,
-                fontSize: '14px',
+                fontWeight: 400,
+                fontSize: '12px',
                 lineHeight: '16px',
                 color: '#050E25',
                 backgroundColor: '#ffffff',
                 border: '1px solid #EFF0F1',
-                //padding: '4px',
-                gap: '4px',
+                paddingLeft: '3px',
+                gap: '10px',
               }}
-              deleteIcon={< ClearIcon style={{fontSize: '16px', color: '#2E2E2E'}}/>} 
+              deleteIcon={<img
+                src={wrong}
+                alt="wrong-icon"
+              />} 
             />
+            </div>
           ))
         }
         renderInput={(params) => (
           <TextField
             {...params}
             className= {classes.textFieldRoot}
+            style={{width: width ? width : '289px'}}
             // onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             variant="filled"
@@ -131,7 +157,7 @@ const App = () => {
   )
 }
 
-export default App
+export default TextField55
 
 
 

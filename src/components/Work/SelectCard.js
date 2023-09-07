@@ -14,18 +14,7 @@ const useStyles = makeStyles((theme) => ({
     background: '#FFFFFF',
     border: '1px solid #3874FF',
     borderRadius: '4px',
-    //boxSizing: "border-box",
   },
-  icon: {
-    // width: '19px',
-    // height: '19px',
-    // border: '1px solid #3874FF',
-    // marginLeft: '4px',
-  },
-  // disabled: {
-  //   opacity: 0.5,
-  //   pointerEvents: none
-  // },
   cardDisabled: {
     border: "none",
     display: 'flex',
@@ -43,72 +32,61 @@ const useStyles = makeStyles((theme) => ({
       fontStyle: 'normal',
       fontWeight: 600,
       fontSize: '18px',
-      lineHeight: '23px',
+      lineHeight: '32px',
       color: '#050E25',
       minWidth: '21px',
-      maxWidth: "150px",
-      height: "18px",
+      maxWidth: "160px",
+      height: "25px",
       whiteSpace: 'nowrap', 
-      overflow: 'hidden',
-      //textOverflow: 'ellipsis', 
-      //marginLeft: "2rem",
-      pointerEvents: 'none', 
+      overflow: 'hidden', 
     },
   },
 
   typographyDisabled: {
-      color: "#626776",
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 600,
-      fontSize: '18px',
-      lineHeight: '23px',
-      minWidth: '21px',
-      maxWidth: "150px",
-      height: "18px",
-      whiteSpace: 'nowrap', 
-      overflow: 'hidden',
-      //textOverflow: 'ellipsis', 
-      //marginLeft: "2rem",
-      pointerEvents: 'none'
-  },
-  // cardContentRoot: {
-  //   '&.MuiCardContent-root': {
-  //     // paddingLeft: "25px",
-  //     // marginLeft: "-1.5rem",
-  //   }
-  // },
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    marginTop: '20px',
-    justifyContent: 'center',
+    color: "#626776 !important",
+    fontFamily: 'Inter !important',
+    fontStyle: 'normal !important',
+    fontSize: '18px !important',
+    lineHeight: '32px !important',
+    minWidth: '21px !important',
+    maxWidth: '160px !important',
+    height: '25px !important',
+    whiteSpace: 'nowrap !important',
+    overflow: 'hidden !important',
   },
 }));
 
-const MyCard = (props) => {
-  const {selectCardProps} = props
+const MyCard1 = ({ text, icon, iconColor, selected, onSelect }) => {
   const classes = useStyles();
+
+  const handleCardClick = () => {
+    if (!selected) {
+      onSelect(text);
+    }
+  };
+  
   const iconStyle = {
-    color: selectCardProps.disabled ? '#d3d3d3' : selectCardProps.iconColor,
+    color: selected ? iconColor : '#d3d3d3'
   };
 
-  return (
-    <div className={classes.container}>
-      <Card className={selectCardProps.disabled ? classes.cardDisabled : classes.card}>
-      <Icon style={iconStyle}>
 
-           {selectCardProps.icon}                                      
-        </Icon>
-        <CardContent className= {classes.cardContentRoot}>
-          <Typography  className={selectCardProps.disabled ? classes.typographyDisabled : classes.typographyRoot}>
-              {selectCardProps.text}
-          </Typography>
-        </CardContent>
-      </Card>
-    </div>
+  return (
+    <Card
+      className={selected ? classes.card : classes.cardDisabled}
+      onClick={handleCardClick}
+    >
+      <Icon style={iconStyle}>
+        {icon}
+      </Icon>
+      <CardContent className={classes.cardContentRoot}>
+        <Typography
+          className={selected ? classes.typographyRoot :classes.typographyDisabled}
+        >
+          {text}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 
-export default MyCard;
-
+export default MyCard1;

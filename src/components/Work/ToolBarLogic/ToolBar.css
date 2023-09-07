@@ -1,0 +1,46 @@
+
+
+.Button-1 {
+    font-family: 'Inter' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    color: #050E25 !important;
+    text-transform: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 6px 8px !important;
+    /* margin-left: 10px !important;
+    margin-right: 10px !important; */
+}
+
+.Button-2 {
+    font-family: 'Inter' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    color: #ffffff !important;
+    text-transform: none !important;
+    background-color: #3874FF !important;
+    box-shadow: none !important;
+    padding: 6px 16px !important;
+    /* margin-left: 10px !important;
+    margin-right: 10px !important; */
+}
+
+.Button-3 {
+    font-family: 'Inter' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    color: #ffffff !important;
+    text-transform: none !important;
+    background-color: #d63b6f !important;
+    box-shadow: none !important;
+    padding: 6px 16px !important;
+    /* margin-left: 10px !important;
+    margin-right: 10px !important; */
+}
